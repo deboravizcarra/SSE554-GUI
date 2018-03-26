@@ -41,6 +41,8 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSave_triggered()
 {
+    if(filepath == "")
+        return;
     QFile file(filepath);
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, "..", "File Not Open");
